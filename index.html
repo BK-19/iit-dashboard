@@ -18,6 +18,17 @@ select, input, button { font-family: inherit; }
 <body>
 <div id="root"></div>
 <script>
+/* ============================================================
+   ปุ่ม "ข้อคำถาม 30 ข้อ"  —  สวิตช์เปิด/ปิด
+   วันงาน 28 ส.ค. 2569  —  แก้ false เป็น true แล้ว Commit
+   แก้แค่คำเดียว ห้ามแก้ส่วนอื่น ห้ามลบ semicolon
+   ต้องเป็นตัวพิมพ์เล็กทั้งหมด  (true ไม่ใช่ True / TRUE / "true")
+   ============================================================ */
+const SHOW_REF = false;
+
+const REF_URL = "https://bk-19.github.io/iit-2569-reference/";
+const REF_ON = SHOW_REF || new URLSearchParams(location.search).get("unlock") === "1";
+
 const { useState, useMemo } = React;
 const { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } = Recharts;
 const IIT = [{
@@ -1740,7 +1751,13 @@ function App() {
       opacity: .7,
       marginTop: 2
     }
-  }, "Internal Integrity & Transparency Assessment")), /*#__PURE__*/React.createElement("a", {
+  }, "Internal Integrity & Transparency Assessment")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 8,
+      flexWrap: "wrap"
+    }
+  }, /*#__PURE__*/React.createElement("a", {
     href: "https://bk-19.github.io/iit-2569-event/",
     target: "_blank",
     rel: "noopener noreferrer",
@@ -1769,7 +1786,35 @@ function App() {
       e.currentTarget.style.background = "rgba(255,255,255,.16)";
       e.currentTarget.style.color = "#fff";
     }
-  }, "\uD83D\uDCC5 กำหนดการ 28 ส.ค. 2569 ↗")), /*#__PURE__*/React.createElement("div", {
+  }, "\uD83D\uDCC5 กำหนดการ 28 ส.ค. 2569 ↗"), REF_ON && /*#__PURE__*/React.createElement("a", {
+    href: REF_URL,
+    target: "_blank",
+    rel: "noopener noreferrer",
+    style: {
+      display: "inline-flex",
+      alignItems: "center",
+      gap: 8,
+      background: "#fff",
+      border: "1px solid #fff",
+      borderRadius: 12,
+      padding: "10px 18px",
+      minHeight: 44,
+      color: P,
+      textDecoration: "none",
+      fontSize: 15,
+      fontWeight: 700,
+      whiteSpace: "nowrap",
+      transition: "all .18s"
+    },
+    onMouseEnter: e => {
+      e.currentTarget.style.background = "rgba(255,255,255,.16)";
+      e.currentTarget.style.color = "#fff";
+    },
+    onMouseLeave: e => {
+      e.currentTarget.style.background = "#fff";
+      e.currentTarget.style.color = P;
+    }
+  }, "\uD83D\uDCCB ข้อคำถาม 30 ข้อ ↗"))), /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
       background: "#fff",
